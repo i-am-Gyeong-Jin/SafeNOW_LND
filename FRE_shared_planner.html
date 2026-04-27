@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="ko"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>무료 체험 신청 | 안전NOW</title>
+<link rel="stylesheet" as="style" crossorigin="" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      fontFamily: { pretendard: ['"Pretendard Variable"','Pretendard','-apple-system','sans-serif'] },
+      colors: {
+        brand: {50:'#EFF6FF',100:'#DBEAFE',200:'#BFDBFE',300:'#93C5FD',400:'#60A5FA',500:'#3B82F6',600:'#2563EB',700:'#1D4ED8',800:'#1E40AF',900:'#1E3A8A'},
+        accent: {500:'#F97316',600:'#EA580C'},
+        ink: {900:'#0F172A',700:'#334155',500:'#64748B',300:'#CBD5E1',100:'#F1F5F9',50:'#F8FAFC'}
+      },
+      boxShadow: {
+        'card':'0 4px 24px -4px rgba(15,23,42,.08),0 2px 8px -2px rgba(15,23,42,.04)',
+        'card-hover':'0 12px 32px -8px rgba(30,64,175,.18),0 4px 12px -2px rgba(15,23,42,.08)',
+        'cta':'0 8px 24px -4px rgba(249,115,22,.35)'
+      }
+    }
+  }
+}
+</script>
+<style>
+  html{scroll-behavior:smooth}
+  body{font-family:'Pretendard Variable',Pretendard,sans-serif;-webkit-font-smoothing:antialiased}
+  .hero-bg{background:radial-gradient(ellipse 80% 60% at 20% 10%,rgba(59,130,246,.12) 0%,transparent 60%),radial-gradient(ellipse 70% 50% at 85% 30%,rgba(249,115,22,.08) 0%,transparent 60%),linear-gradient(180deg,#F8FAFC 0%,#EFF6FF 100%)}
+  /* Mobile menu */
+  #mobile-menu-backdrop.is-open{opacity:1;visibility:visible}
+  #mobile-side-menu.is-open{transform:translateX(0)}
+  body.menu-open{overflow:hidden}
+  /* Feature checkbox */
+  .feat-label{transition:border-color .15s,background .15s,color .15s;cursor:pointer}
+  .feat-label.checked{border-color:#2563EB;background:#EFF6FF;color:#1D4ED8}
+  /* Form inputs */
+  input:focus,select:focus,textarea:focus{outline:none;border-color:#3B82F6;box-shadow:0 0 0 3px rgba(59,130,246,.15)}
+  /* Success overlay */
+  .overlay{display:none;position:fixed;inset:0;background:rgba(15,23,42,.6);backdrop-filter:blur(4px);z-index:200;align-items:center;justify-content:center}
+  .overlay.show{display:flex}
+</style>
+
+<!-- ========================================================= -->
+<!-- 📋 TWEAKS SYSTEM — 안전NOW 무료 체험 신청 기획서              -->
+<!-- ========================================================= -->
+
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.invisible{visibility:hidden}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}.inset-0{inset:0px}.left-1\/2{left:50%}.right-0{right:0px}.top-0{top:0px}.top-24{top:6rem}.top-full{top:100%}.z-50{z-index:50}.z-\[60\]{z-index:60}.z-\[70\]{z-index:70}.mx-4{margin-left:1rem;margin-right:1rem}.mx-auto{margin-left:auto;margin-right:auto}.mb-1{margin-bottom:0.25rem}.mb-1\.5{margin-bottom:0.375rem}.mb-2{margin-bottom:0.5rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.ml-1{margin-left:0.25rem}.mt-0\.5{margin-top:0.125rem}.mt-1{margin-top:0.25rem}.mt-2{margin-top:0.5rem}.block{display:block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.h-1\.5{height:0.375rem}.h-10{height:2.5rem}.h-16{height:4rem}.h-4{height:1rem}.h-6{height:1.5rem}.h-9{height:2.25rem}.h-full{height:100%}.w-10{width:2.5rem}.w-16{width:4rem}.w-3\/5{width:60%}.w-4{width:1rem}.w-4\/5{width:80%}.w-6{width:1.5rem}.w-9{width:2.25rem}.w-\[85\%\]{width:85%}.w-full{width:100%}.min-w-\[160px\]{min-width:160px}.max-w-4xl{max-width:56rem}.max-w-7xl{max-width:80rem}.max-w-\[320px\]{max-width:320px}.max-w-lg{max-width:32rem}.max-w-sm{max-width:24rem}.flex-1{flex:1 1 0%}.flex-shrink-0{flex-shrink:0}.-translate-x-1\/2{--tw-translate-x:-50%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.translate-x-full{--tw-translate-x:100%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.cursor-pointer{cursor:pointer}.resize-none{resize:none}.grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.flex-col{flex-direction:column}.items-start{align-items:flex-start}.items-center{align-items:center}.justify-end{justify-content:flex-end}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1{gap:0.25rem}.gap-1\.5{gap:0.375rem}.gap-10{gap:2.5rem}.gap-2{gap:0.5rem}.gap-2\.5{gap:0.625rem}.gap-3{gap:0.75rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.gap-8{gap:2rem}.space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.space-y-6 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.overflow-y-auto{overflow-y:auto}.rounded-2xl{border-radius:1rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-md{border-radius:0.375rem}.rounded-xl{border-radius:0.75rem}.border{border-width:1px}.border-2{border-width:2px}.border-b{border-bottom-width:1px}.border-t{border-top-width:1px}.border-brand-600{--tw-border-opacity:1;border-color:rgb(37 99 235 / var(--tw-border-opacity, 1))}.border-ink-100{--tw-border-opacity:1;border-color:rgb(241 245 249 / var(--tw-border-opacity, 1))}.border-white\/10{border-color:rgb(255 255 255 / 0.1)}.border-white\/20{border-color:rgb(255 255 255 / 0.2)}.bg-accent-500{--tw-bg-opacity:1;background-color:rgb(249 115 22 / var(--tw-bg-opacity, 1))}.bg-brand-50{--tw-bg-opacity:1;background-color:rgb(239 246 255 / var(--tw-bg-opacity, 1))}.bg-brand-600{--tw-bg-opacity:1;background-color:rgb(37 99 235 / var(--tw-bg-opacity, 1))}.bg-brand-700{--tw-bg-opacity:1;background-color:rgb(29 78 216 / var(--tw-bg-opacity, 1))}.bg-green-100{--tw-bg-opacity:1;background-color:rgb(220 252 231 / var(--tw-bg-opacity, 1))}.bg-ink-100{--tw-bg-opacity:1;background-color:rgb(241 245 249 / var(--tw-bg-opacity, 1))}.bg-ink-50{--tw-bg-opacity:1;background-color:rgb(248 250 252 / var(--tw-bg-opacity, 1))}.bg-ink-900{--tw-bg-opacity:1;background-color:rgb(15 23 42 / var(--tw-bg-opacity, 1))}.bg-ink-900\/50{background-color:rgb(15 23 42 / 0.5)}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-white\/10{background-color:rgb(255 255 255 / 0.1)}.bg-white\/90{background-color:rgb(255 255 255 / 0.9)}.p-1\.5{padding:0.375rem}.p-10{padding:2.5rem}.p-4{padding:1rem}.p-8{padding:2rem}.px-2{padding-left:0.5rem;padding-right:0.5rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-4{padding-left:1rem;padding-right:1rem}.px-5{padding-left:1.25rem;padding-right:1.25rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.py-10{padding-top:2.5rem;padding-bottom:2.5rem}.py-16{padding-top:4rem;padding-bottom:4rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-2\.5{padding-top:0.625rem;padding-bottom:0.625rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-3\.5{padding-top:0.875rem;padding-bottom:0.875rem}.py-4{padding-top:1rem;padding-bottom:1rem}.py-5{padding-top:1.25rem;padding-bottom:1.25rem}.pb-1{padding-bottom:0.25rem}.pb-10{padding-bottom:2.5rem}.pb-2{padding-bottom:0.5rem}.pb-5{padding-bottom:1.25rem}.pt-3{padding-top:0.75rem}.pt-6{padding-top:1.5rem}.text-center{text-align:center}.font-pretendard{font-family:"Pretendard Variable", Pretendard, -apple-system, sans-serif}.text-2xl{font-size:1.5rem;line-height:2rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-\[10px\]{font-size:10px}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-bold{font-weight:700}.font-extrabold{font-weight:800}.font-medium{font-weight:500}.font-normal{font-weight:400}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.leading-\[1\.2\]{line-height:1.2}.leading-relaxed{line-height:1.625}.leading-snug{line-height:1.375}.tracking-tight{letter-spacing:-0.025em}.tracking-wider{letter-spacing:0.05em}.text-accent-500{--tw-text-opacity:1;color:rgb(249 115 22 / var(--tw-text-opacity, 1))}.text-brand-200{--tw-text-opacity:1;color:rgb(191 219 254 / var(--tw-text-opacity, 1))}.text-brand-400{--tw-text-opacity:1;color:rgb(96 165 250 / var(--tw-text-opacity, 1))}.text-brand-600{--tw-text-opacity:1;color:rgb(37 99 235 / var(--tw-text-opacity, 1))}.text-brand-700{--tw-text-opacity:1;color:rgb(29 78 216 / var(--tw-text-opacity, 1))}.text-ink-300{--tw-text-opacity:1;color:rgb(203 213 225 / var(--tw-text-opacity, 1))}.text-ink-500{--tw-text-opacity:1;color:rgb(100 116 139 / var(--tw-text-opacity, 1))}.text-ink-700{--tw-text-opacity:1;color:rgb(51 65 85 / var(--tw-text-opacity, 1))}.text-ink-900{--tw-text-opacity:1;color:rgb(15 23 42 / var(--tw-text-opacity, 1))}.text-red-500{--tw-text-opacity:1;color:rgb(239 68 68 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.underline{-webkit-text-decoration-line:underline;text-decoration-line:underline}.placeholder-ink-300::placeholder{--tw-placeholder-opacity:1;color:rgb(203 213 225 / var(--tw-placeholder-opacity, 1))}.accent-blue-600{accent-color:#2563eb}.opacity-0{opacity:0}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-card{--tw-shadow:0 4px 24px -4px rgba(15,23,42,.08),0 2px 8px -2px rgba(15,23,42,.04);--tw-shadow-colored:0 4px 24px -4px var(--tw-shadow-color), 0 2px 8px -2px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-cta{--tw-shadow:0 8px 24px -4px rgba(249,115,22,.35);--tw-shadow-colored:0 8px 24px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-sm{--tw-shadow:0 1px 2px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.backdrop-blur-md{--tw-backdrop-blur:blur(12px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition{transition-property:color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-opacity{transition-property:opacity;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-transform{transition-property:transform;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-300{transition-duration:300ms}.ease-in-out{transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1)}.hover\:bg-accent-600:hover{--tw-bg-opacity:1;background-color:rgb(234 88 12 / var(--tw-bg-opacity, 1))}.hover\:bg-brand-50:hover{--tw-bg-opacity:1;background-color:rgb(239 246 255 / var(--tw-bg-opacity, 1))}.hover\:bg-brand-700:hover{--tw-bg-opacity:1;background-color:rgb(29 78 216 / var(--tw-bg-opacity, 1))}.hover\:bg-ink-100:hover{--tw-bg-opacity:1;background-color:rgb(241 245 249 / var(--tw-bg-opacity, 1))}.hover\:bg-ink-50:hover{--tw-bg-opacity:1;background-color:rgb(248 250 252 / var(--tw-bg-opacity, 1))}.hover\:bg-white\/20:hover{background-color:rgb(255 255 255 / 0.2)}.hover\:text-brand-600:hover{--tw-text-opacity:1;color:rgb(37 99 235 / var(--tw-text-opacity, 1))}.hover\:text-brand-800:hover{--tw-text-opacity:1;color:rgb(30 64 175 / var(--tw-text-opacity, 1))}.hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.group:hover .group-hover\:visible{visibility:visible}.group:hover .group-hover\:opacity-100{opacity:1}@media (min-width: 640px){.sm\:col-span-2{grid-column:span 2 / span 2}.sm\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.sm\:grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}}@media (min-width: 768px){.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.md\:flex-row{flex-direction:row}.md\:items-center{align-items:center}}@media (min-width: 1024px){.lg\:col-span-2{grid-column:span 2 / span 2}.lg\:flex{display:flex}.lg\:inline-flex{display:inline-flex}.lg\:hidden{display:none}.lg\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.lg\:grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}.lg\:grid-cols-\[1fr_360px\]{grid-template-columns:1fr 360px}.lg\:px-8{padding-left:2rem;padding-right:2rem}.lg\:py-20{padding-top:5rem;padding-bottom:5rem}.lg\:text-3xl{font-size:1.875rem;line-height:2.25rem}.lg\:text-5xl{font-size:3rem;line-height:1}}</style><style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.invisible{visibility:hidden}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}.inset-0{inset:0px}.left-1\/2{left:50%}.right-0{right:0px}.top-0{top:0px}.top-24{top:6rem}.top-full{top:100%}.z-50{z-index:50}.z-\[60\]{z-index:60}.z-\[70\]{z-index:70}.mx-4{margin-left:1rem;margin-right:1rem}.mx-auto{margin-left:auto;margin-right:auto}.mb-1{margin-bottom:0.25rem}.mb-1\.5{margin-bottom:0.375rem}.mb-2{margin-bottom:0.5rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.ml-1{margin-left:0.25rem}.mt-0\.5{margin-top:0.125rem}.mt-1{margin-top:0.25rem}.mt-2{margin-top:0.5rem}.block{display:block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.h-1\.5{height:0.375rem}.h-10{height:2.5rem}.h-16{height:4rem}.h-4{height:1rem}.h-6{height:1.5rem}.h-9{height:2.25rem}.h-full{height:100%}.w-10{width:2.5rem}.w-16{width:4rem}.w-3\/5{width:60%}.w-4{width:1rem}.w-4\/5{width:80%}.w-6{width:1.5rem}.w-9{width:2.25rem}.w-\[85\%\]{width:85%}.w-full{width:100%}.min-w-\[160px\]{min-width:160px}.max-w-4xl{max-width:56rem}.max-w-7xl{max-width:80rem}.max-w-\[320px\]{max-width:320px}.max-w-lg{max-width:32rem}.max-w-sm{max-width:24rem}.flex-1{flex:1 1 0%}.flex-shrink-0{flex-shrink:0}.-translate-x-1\/2{--tw-translate-x:-50%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.translate-x-full{--tw-translate-x:100%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.cursor-pointer{cursor:pointer}.resize-none{resize:none}.grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.flex-col{flex-direction:column}.items-start{align-items:flex-start}.items-center{align-items:center}.justify-end{justify-content:flex-end}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1{gap:0.25rem}.gap-1\.5{gap:0.375rem}.gap-10{gap:2.5rem}.gap-2{gap:0.5rem}.gap-2\.5{gap:0.625rem}.gap-3{gap:0.75rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.gap-8{gap:2rem}.space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.space-y-6 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.overflow-y-auto{overflow-y:auto}.rounded-2xl{border-radius:1rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-md{border-radius:0.375rem}.rounded-xl{border-radius:0.75rem}.border{border-width:1px}.border-2{border-width:2px}.border-b{border-bottom-width:1px}.border-t{border-top-width:1px}.border-brand-600{--tw-border-opacity:1;border-color:rgb(37 99 235 / var(--tw-border-opacity, 1))}.border-ink-100{--tw-border-opacity:1;border-color:rgb(241 245 249 / var(--tw-border-opacity, 1))}.border-white\/10{border-color:rgb(255 255 255 / 0.1)}.border-white\/20{border-color:rgb(255 255 255 / 0.2)}.bg-accent-500{--tw-bg-opacity:1;background-color:rgb(249 115 22 / var(--tw-bg-opacity, 1))}.bg-brand-50{--tw-bg-opacity:1;background-color:rgb(239 246 255 / var(--tw-bg-opacity, 1))}.bg-brand-600{--tw-bg-opacity:1;background-color:rgb(37 99 235 / var(--tw-bg-opacity, 1))}.bg-brand-700{--tw-bg-opacity:1;background-color:rgb(29 78 216 / var(--tw-bg-opacity, 1))}.bg-green-100{--tw-bg-opacity:1;background-color:rgb(220 252 231 / var(--tw-bg-opacity, 1))}.bg-ink-100{--tw-bg-opacity:1;background-color:rgb(241 245 249 / var(--tw-bg-opacity, 1))}.bg-ink-50{--tw-bg-opacity:1;background-color:rgb(248 250 252 / var(--tw-bg-opacity, 1))}.bg-ink-900{--tw-bg-opacity:1;background-color:rgb(15 23 42 / var(--tw-bg-opacity, 1))}.bg-ink-900\/50{background-color:rgb(15 23 42 / 0.5)}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-white\/10{background-color:rgb(255 255 255 / 0.1)}.bg-white\/90{background-color:rgb(255 255 255 / 0.9)}.p-1\.5{padding:0.375rem}.p-10{padding:2.5rem}.p-4{padding:1rem}.p-8{padding:2rem}.px-2{padding-left:0.5rem;padding-right:0.5rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-4{padding-left:1rem;padding-right:1rem}.px-5{padding-left:1.25rem;padding-right:1.25rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.py-10{padding-top:2.5rem;padding-bottom:2.5rem}.py-16{padding-top:4rem;padding-bottom:4rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-2\.5{padding-top:0.625rem;padding-bottom:0.625rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-3\.5{padding-top:0.875rem;padding-bottom:0.875rem}.py-4{padding-top:1rem;padding-bottom:1rem}.py-5{padding-top:1.25rem;padding-bottom:1.25rem}.pb-1{padding-bottom:0.25rem}.pb-10{padding-bottom:2.5rem}.pb-2{padding-bottom:0.5rem}.pb-5{padding-bottom:1.25rem}.pt-3{padding-top:0.75rem}.pt-6{padding-top:1.5rem}.text-center{text-align:center}.font-pretendard{font-family:"Pretendard Variable", Pretendard, -apple-system, sans-serif}.text-2xl{font-size:1.5rem;line-height:2rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-\[10px\]{font-size:10px}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-bold{font-weight:700}.font-extrabold{font-weight:800}.font-medium{font-weight:500}.font-normal{font-weight:400}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.leading-\[1\.2\]{line-height:1.2}.leading-relaxed{line-height:1.625}.leading-snug{line-height:1.375}.tracking-tight{letter-spacing:-0.025em}.tracking-wider{letter-spacing:0.05em}.text-accent-500{--tw-text-opacity:1;color:rgb(249 115 22 / var(--tw-text-opacity, 1))}.text-brand-200{--tw-text-opacity:1;color:rgb(191 219 254 / var(--tw-text-opacity, 1))}.text-brand-400{--tw-text-opacity:1;color:rgb(96 165 250 / var(--tw-text-opacity, 1))}.text-brand-600{--tw-text-opacity:1;color:rgb(37 99 235 / var(--tw-text-opacity, 1))}.text-brand-700{--tw-text-opacity:1;color:rgb(29 78 216 / var(--tw-text-opacity, 1))}.text-ink-300{--tw-text-opacity:1;color:rgb(203 213 225 / var(--tw-text-opacity, 1))}.text-ink-500{--tw-text-opacity:1;color:rgb(100 116 139 / var(--tw-text-opacity, 1))}.text-ink-700{--tw-text-opacity:1;color:rgb(51 65 85 / var(--tw-text-opacity, 1))}.text-ink-900{--tw-text-opacity:1;color:rgb(15 23 42 / var(--tw-text-opacity, 1))}.text-red-500{--tw-text-opacity:1;color:rgb(239 68 68 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.underline{-webkit-text-decoration-line:underline;text-decoration-line:underline}.placeholder-ink-300::placeholder{--tw-placeholder-opacity:1;color:rgb(203 213 225 / var(--tw-placeholder-opacity, 1))}.accent-blue-600{accent-color:#2563eb}.opacity-0{opacity:0}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-card{--tw-shadow:0 4px 24px -4px rgba(15,23,42,.08),0 2px 8px -2px rgba(15,23,42,.04);--tw-shadow-colored:0 4px 24px -4px var(--tw-shadow-color), 0 2px 8px -2px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-cta{--tw-shadow:0 8px 24px -4px rgba(249,115,22,.35);--tw-shadow-colored:0 8px 24px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-sm{--tw-shadow:0 1px 2px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.backdrop-blur-md{--tw-backdrop-blur:blur(12px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition{transition-property:color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-opacity{transition-property:opacity;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-transform{transition-property:transform;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-300{transition-duration:300ms}.ease-in-out{transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1)}.hover\:bg-accent-600:hover{--tw-bg-opacity:1;background-color:rgb(234 88 12 / var(--tw-bg-opacity, 1))}.hover\:bg-brand-50:hover{--tw-bg-opacity:1;background-color:rgb(239 246 255 / var(--tw-bg-opacity, 1))}.hover\:bg-brand-700:hover{--tw-bg-opacity:1;background-color:rgb(29 78 216 / var(--tw-bg-opacity, 1))}.hover\:bg-ink-100:hover{--tw-bg-opacity:1;background-color:rgb(241 245 249 / var(--tw-bg-opacity, 1))}.hover\:bg-ink-50:hover{--tw-bg-opacity:1;background-color:rgb(248 250 252 / var(--tw-bg-opacity, 1))}.hover\:bg-white\/20:hover{background-color:rgb(255 255 255 / 0.2)}.hover\:text-brand-600:hover{--tw-text-opacity:1;color:rgb(37 99 235 / var(--tw-text-opacity, 1))}.hover\:text-brand-800:hover{--tw-text-opacity:1;color:rgb(30 64 175 / var(--tw-text-opacity, 1))}.hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.group:hover .group-hover\:visible{visibility:visible}.group:hover .group-hover\:opacity-100{opacity:1}@media (min-width: 640px){.sm\:col-span-2{grid-column:span 2 / span 2}.sm\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.sm\:grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}}@media (min-width: 768px){.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.md\:flex-row{flex-direction:row}.md\:items-center{align-items:center}}@media (min-width: 1024px){.lg\:col-span-2{grid-column:span 2 / span 2}.lg\:flex{display:flex}.lg\:inline-flex{display:inline-flex}.lg\:hidden{display:none}.lg\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.lg\:grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}.lg\:grid-cols-\[1fr_360px\]{grid-template-columns:1fr 360px}.lg\:px-8{padding-left:2rem;padding-right:2rem}.lg\:py-20{padding-top:5rem;padding-bottom:5rem}.lg\:text-3xl{font-size:1.875rem;line-height:2.25rem}.lg\:text-5xl{font-size:3rem;line-height:1}}</style></head>
+<body class="font-pretendard text-ink-900 bg-white tws-mode-proto">
+
+<!-- ===== GNB ===== -->
+<header data-section-id="H00" data-section-name="Global Nav" class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-ink-100" style="position:relative">
+  <nav class="max-w-7xl mx-auto px-6 lg:px-8 h-16 flex items-center justify-between">
+    <a href="./Index.html" class="flex items-center gap-2">
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <path d="M16 2L4 7v9c0 7.5 5.1 13.5 12 14 6.9-.5 12-6.5 12-14V7l-12-5z" fill="url(#shield-g)"></path>
+        <path d="M11 16l3.5 3.5L21 12" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path>
+        <defs><linearGradient id="shield-g" x1="0" y1="0" x2="32" y2="32"><stop offset="0%" stop-color="#3B82F6"></stop><stop offset="100%" stop-color="#1E40AF"></stop></linearGradient></defs>
+      </svg>
+      <span class="text-lg font-bold tracking-tight">안전<span class="text-brand-600">NOW</span></span>
+    </a>
+    <ul class="hidden lg:flex items-center gap-8 text-sm font-medium text-ink-700">
+      <li><a href="./FUN_shared_planner.html" class="hover:text-brand-600 transition">기능 소개</a></li>
+      <li><a href="./PRC_shared_planner.html" class="hover:text-brand-600 transition">가격 안내</a></li>
+      <li><a href="./EXP_shared_planner.html" class="hover:text-brand-600 transition">도입 사례</a></li>
+      <li class="relative group">
+        <button class="flex items-center gap-1 hover:text-brand-600 transition">고객 지원
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg>
+        </button>
+        <div class="absolute top-full left-1/2 -translate-x-1/2 pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition">
+          <div class="bg-white rounded-xl shadow-card border border-ink-100 py-2 min-w-[160px]">
+            <a href="./ASK_shared_planner.html" class="block px-4 py-2 text-sm hover:bg-ink-50">도입 문의하기</a>
+            <a href="./IRD_intro_shared_planner.html" class="block px-4 py-2 text-sm hover:bg-ink-50">소개자료</a>
+            <a href="./FAQ_shared_planner.html" class="block px-4 py-2 text-sm hover:bg-ink-50">FAQ</a>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <div class="flex items-center gap-3">
+      <a href="https://safenow.co.kr/mber/support/login/login" class="text-sm font-medium text-ink-700 hover:text-brand-600 transition">로그인</a>
+      <a href="./FRE_shared_planner.html" class="hidden lg:inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-accent-500 text-white text-sm font-semibold shadow-cta hover:bg-accent-600 transition">
+        무료 체험 신청 하기
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5 3l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      </a>
+      <button id="mobile-menu-toggle" type="button" class="lg:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg text-ink-700 hover:bg-ink-50 hover:text-brand-600 transition" aria-label="메뉴 열기" aria-controls="mobile-side-menu" aria-expanded="false">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<!-- Mobile backdrop -->
+<div id="mobile-menu-backdrop" class="lg:hidden fixed inset-0 z-[60] bg-ink-900/50 opacity-0 invisible transition-opacity duration-300" aria-hidden="true"></div>
+
+<!-- Mobile side menu -->
+<aside id="mobile-side-menu" class="lg:hidden fixed top-0 right-0 z-[70] h-full w-[85%] max-w-[320px] bg-white shadow-2xl translate-x-full transition-transform duration-300 ease-in-out flex flex-col" role="dialog" aria-modal="true">
+  <div class="flex items-center justify-between px-5 h-16 border-b border-ink-100">
+    <a href="./Index.html" class="flex items-center gap-2">
+      <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+        <path d="M16 2L4 7v9c0 7.5 5.1 13.5 12 14 6.9-.5 12-6.5 12-14V7l-12-5z" fill="url(#shield-g-m)"></path>
+        <path d="M11 16l3.5 3.5L21 12" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path>
+        <defs><linearGradient id="shield-g-m" x1="0" y1="0" x2="32" y2="32"><stop offset="0%" stop-color="#3B82F6"></stop><stop offset="100%" stop-color="#1E40AF"></stop></linearGradient></defs>
+      </svg>
+      <span class="text-lg font-bold tracking-tight">안전<span class="text-brand-600">NOW</span></span>
+    </a>
+    <button id="mobile-menu-close" type="button" class="inline-flex items-center justify-center w-10 h-10 rounded-lg text-ink-700 hover:bg-ink-50 transition" aria-label="메뉴 닫기">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    </button>
+  </div>
+  <nav class="flex-1 overflow-y-auto px-2 py-4">
+    <ul class="flex flex-col">
+      <li><a href="./FUN_shared_planner.html" class="mobile-nav-link block px-4 py-3 text-base font-semibold text-ink-900 hover:bg-brand-50 hover:text-brand-600 rounded-lg transition">기능 소개</a></li>
+      <li><a href="./PRC_shared_planner.html" class="mobile-nav-link block px-4 py-3 text-base font-semibold text-ink-900 hover:bg-brand-50 hover:text-brand-600 rounded-lg transition">가격 안내</a></li>
+      <li><a href="./EXP_shared_planner.html" class="mobile-nav-link block px-4 py-3 text-base font-semibold text-ink-900 hover:bg-brand-50 hover:text-brand-600 rounded-lg transition">도입 사례</a></li>
+      <li class="mt-2">
+        <div class="px-4 pt-3 pb-1 text-xs font-semibold text-ink-400 uppercase tracking-wider">고객 지원</div>
+        <ul class="flex flex-col">
+          <li><a href="./ASK_shared_planner.html" class="mobile-nav-link block px-4 py-3 text-sm text-ink-700 hover:bg-brand-50 hover:text-brand-600 rounded-lg transition">도입 문의하기</a></li>
+          <li><a href="./IRD_intro_shared_planner.html" class="mobile-nav-link block px-4 py-3 text-sm text-ink-700 hover:bg-brand-50 hover:text-brand-600 rounded-lg transition">소개자료</a></li>
+          <li><a href="./FAQ_shared_planner.html" class="mobile-nav-link block px-4 py-3 text-sm text-ink-700 hover:bg-brand-50 hover:text-brand-600 rounded-lg transition">FAQ</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+  <div class="px-5 py-4 border-t border-ink-100">
+    <a href="./FRE_shared_planner.html" class="mobile-nav-link w-full inline-flex items-center justify-center gap-1.5 px-4 py-3 rounded-lg bg-accent-500 text-white text-sm font-semibold shadow-cta hover:bg-accent-600 transition">
+      무료 체험 신청 하기
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5 3l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+    </a>
+  </div>
+</aside>
+
+<main>
+
+<!-- ===== S01 Hero ===== -->
+<section data-section-id="S01" data-section-name="Hero" class="hero-bg py-16 lg:py-20" style="position:relative"><!--tw-placeholder--><!--tw-placeholder--><!--tw-placeholder--><!--tw-placeholder-->
+  <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+    <h1 class="text-4xl lg:text-5xl font-extrabold leading-[1.2] tracking-tight mb-4">안전NOW의 <span class="text-brand-700">모든 기능</span>을</h1><h1 class="text-4xl lg:text-5xl font-extrabold leading-[1.2] tracking-tight mb-4"><span class="text-brand-700">무료</span>로 체험해 보세요</h1>
+    
+  </div>
+</section>
+
+<!-- ===== S02 신청 폼 ===== -->
+<section id="fre-form" data-section-id="S02" data-section-name="신청 폼" class="py-16 bg-ink-50" style="position:relative"><!--tw-placeholder--><!--tw-placeholder-->
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="grid lg:grid-cols-[1fr_360px] gap-8 items-start">
+
+      <!-- 좌측: 폼 -->
+      <div class="">
+        <div class="mb-8">
+          <h2 class="text-2xl lg:text-3xl font-extrabold text-ink-900 mb-2">무료 체험 신청서</h2>
+          <p class="text-ink-500">아래 정보를 입력하시면 데모 계정을 보내드립니다.</p>
+        </div>
+
+        <form id="freForm" class="bg-white rounded-2xl shadow-card border border-ink-100 p-8 space-y-6" onsubmit="handleSubmit(event)">
+
+      <!-- 기본 정보 -->
+      <div class="">
+        <p class="text-sm font-bold text-ink-900 mb-4 pb-2 border-b border-ink-100">담당자 기본 정보</p>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div class="">
+            <label class="block text-sm font-medium text-ink-700 mb-1.5">회사명 <span class="text-red-500">*</span></label>
+            <input type="text" id="company" placeholder="(주)안전솔루션" required="" class="w-full px-4 py-2.5 rounded-xl border border-ink-200 text-ink-900 text-sm bg-ink-50 placeholder-ink-300 transition">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-ink-700 mb-1.5">근로자 수 <span class="text-red-500">*</span></label>
+            <select id="workers" required="" class="w-full px-4 py-2.5 rounded-xl border border-ink-200 text-ink-900 text-sm bg-ink-50 transition">
+              <option value="">근로자 수를 선택해 주세요</option>
+              <option>1~30명</option>
+              <option>31~50명</option>
+              <option>51~100명</option>
+              <option>101~200명</option>
+              <option>201~300명</option>
+              <option>301~500명</option>
+              <option>501~999명</option>
+              <option>1,000명 이상</option>
+            </select>
+          </div>
+          <div class="">
+            <label class="block text-sm font-medium text-ink-700 mb-1.5">담당자 이름 <span class="text-red-500">*</span></label>
+            <input type="text" id="name" placeholder="홍길동" required="" class="w-full px-4 py-2.5 rounded-xl border border-ink-200 text-ink-900 text-sm bg-ink-50 placeholder-ink-300 transition">
+          </div>
+          <div class="">
+            <label class="block text-sm font-medium text-ink-700 mb-1.5">담당자 연락처 <span class="text-red-500">*</span></label>
+            <input type="tel" id="phone" placeholder="010-0000-0000" required="" class="w-full px-4 py-2.5 rounded-xl border border-ink-200 text-ink-900 text-sm bg-ink-50 placeholder-ink-300 transition">
+          </div>
+          <div class="sm:col-span-2">
+            <label class="block text-sm font-medium text-ink-700 mb-1.5">담당자 이메일 <span class="text-red-500">*</span></label>
+            <input type="email" id="email" placeholder="name@company.com" required="" class="w-full px-4 py-2.5 rounded-xl border border-ink-200 text-ink-900 text-sm bg-ink-50 placeholder-ink-300 transition">
+          </div>
+        </div>
+      </div>
+
+      <!-- 주요 관심 기능 8개 -->
+      <div class="">
+        <p class="text-sm font-bold text-ink-900 mb-1">주요 관심 기능 <span class="text-ink-400 font-normal">(복수 선택)</span></p>
+        <p class="text-xs text-ink-500 mb-4">안전NOW의 8가지 핵심 기능 중 관심 있는 기능을 선택해 주세요.</p>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+
+          <label class="feat-label flex flex-col items-center gap-2 px-3 py-4 rounded-xl border border-ink-200 text-center" onclick="toggleFeat(this)">
+            <input type="checkbox" class="hidden" value="안전 보건 경영 체계 구축">
+            <div class="w-9 h-9 rounded-xl bg-brand-50 flex items-center justify-center flex-shrink-0">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.955 11.955 0 003 12c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.57-.598-3.75h-.152c-3.196 0-6.1-1.248-8.25-3.286z"></path></svg>
+            </div>
+            <span class="text-xs font-semibold leading-snug">안전 보건<br>경영 체계</span>
+          </label>
+
+          <label class="feat-label flex flex-col items-center gap-2 px-3 py-4 rounded-xl border border-ink-200 text-center" onclick="toggleFeat(this)">
+            <input type="checkbox" class="hidden" value="도급 관리">
+            <div class="w-9 h-9 rounded-xl bg-brand-50 flex items-center justify-center flex-shrink-0">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+            </div>
+            <span class="text-xs font-semibold leading-snug">도급 관리</span>
+          </label>
+
+          <label class="feat-label flex flex-col items-center gap-2 px-3 py-4 rounded-xl border border-ink-200 text-center" onclick="toggleFeat(this)">
+            <input type="checkbox" class="hidden" value="위험성 평가">
+            <div class="w-9 h-9 rounded-xl bg-brand-50 flex items-center justify-center flex-shrink-0">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"></path></svg>
+            </div>
+            <span class="text-xs font-semibold leading-snug">위험성 평가</span>
+          </label>
+
+          <label class="feat-label flex flex-col items-center gap-2 px-3 py-4 rounded-xl border border-ink-200 text-center" onclick="toggleFeat(this)">
+            <input type="checkbox" class="hidden" value="TBM">
+            <div class="w-9 h-9 rounded-xl bg-brand-50 flex items-center justify-center flex-shrink-0">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path><circle cx="12" cy="12" r="10"></circle></svg>
+            </div>
+            <span class="text-xs font-semibold leading-snug">TBM</span>
+          </label>
+
+          <label class="feat-label flex flex-col items-center gap-2 px-3 py-4 rounded-xl border border-ink-200 text-center" onclick="toggleFeat(this)">
+            <input type="checkbox" class="hidden" value="안전 보건 교육">
+            <div class="w-9 h-9 rounded-xl bg-brand-50 flex items-center justify-center flex-shrink-0">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.26 10.147a60.438 60.438 0 00-.491 6.347A48.62 48.62 0 0112 20.904a48.62 48.62 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.636 50.636 0 00-2.658-.813A59.906 59.906 0 0112 3.493a59.903 59.903 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5"></path></svg>
+            </div>
+            <span class="text-xs font-semibold leading-snug">안전 보건<br>교육</span>
+          </label>
+
+          <label class="feat-label flex flex-col items-center gap-2 px-3 py-4 rounded-xl border border-ink-200 text-center" onclick="toggleFeat(this)">
+            <input type="checkbox" class="hidden" value="사업장 관리">
+            <div class="w-9 h-9 rounded-xl bg-brand-50 flex items-center justify-center flex-shrink-0">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008z"></path></svg>
+            </div>
+            <span class="text-xs font-semibold leading-snug">사업장 관리</span>
+          </label>
+
+          <label class="feat-label flex flex-col items-center gap-2 px-3 py-4 rounded-xl border border-ink-200 text-center" onclick="toggleFeat(this)">
+            <input type="checkbox" class="hidden" value="업무 관리">
+            <div class="w-9 h-9 rounded-xl bg-brand-50 flex items-center justify-center flex-shrink-0">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>
+            </div>
+            <span class="text-xs font-semibold leading-snug">업무 관리</span>
+          </label>
+
+          <label class="feat-label flex flex-col items-center gap-2 px-3 py-4 rounded-xl border border-ink-200 text-center" onclick="toggleFeat(this)">
+            <input type="checkbox" class="hidden" value="근로자 참여">
+            <div class="w-9 h-9 rounded-xl bg-brand-50 flex items-center justify-center flex-shrink-0">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class=""><path d="M10.05 4.575a1.575 1.575 0 10-3.15 0v3m3.15-3v-1.5a1.575 1.575 0 013.15 0v1.5m-3.15 0l.075 5.925m3.075.75V4.575m0 0a1.575 1.575 0 013.15 0V15M6.9 7.575a1.575 1.575 0 10-3.15 0v8.175a6.75 6.75 0 006.75 6.75h2.018a5.25 5.25 0 003.712-1.538l1.732-1.732a5.25 5.25 0 001.538-3.712l.003-2.024a.668.668 0 01.198-.471 1.575 1.575 0 10-2.228-2.228 3.818 3.818 0 00-1.12 2.687M6.9 7.575V12m6.27 4.318A4.49 4.49 0 0116.16 12h.326"></path></svg>
+            </div>
+            <span class="text-xs font-semibold leading-snug">근로자 참여</span>
+          </label>
+
+        </div>
+      </div>
+
+      <!-- 추가 문의 -->
+      <div class="">
+        <label class="block text-sm font-medium text-ink-700 mb-1.5">추가 문의사항 <span class="text-ink-400 font-normal text-xs">(선택)</span></label>
+        <textarea id="message" rows="3" placeholder="궁금한 점이 있으시면 작성해 주세요." class="w-full px-4 py-2.5 rounded-xl border border-ink-200 text-ink-900 text-sm bg-ink-50 placeholder-ink-300 resize-none transition"></textarea>
+      </div>
+
+      <!-- 개인정보 동의 -->
+      <div class="bg-ink-50 rounded-xl p-4 border border-ink-100">
+        <label class="flex items-start gap-3 cursor-pointer">
+          <input type="checkbox" id="privacy" required="" class="accent-blue-600 w-4 h-4 mt-0.5 flex-shrink-0">
+          <span class="text-xs text-ink-500 leading-relaxed">
+            <strong class="text-ink-700">[필수]</strong> 개인정보 수집 및 이용에 동의합니다. 수집된 정보(회사명, 연락처, 이메일)는 무료 체험 신청 처리 및 서비스 안내 목적으로만 사용되며, 목적 달성 후 즉시 파기됩니다.
+            <a href="https://safenow.co.kr/mber/support/prvplc/cntnts/2/view" target="_blank" class="text-brand-600 underline ml-1">개인정보 처리방침 보기</a>
+          </span>
+        </label>
+      </div>
+
+      <button type="submit" class="w-full py-4 rounded-xl bg-accent-500 hover:bg-accent-600 text-white font-bold text-base transition shadow-cta flex items-center justify-center gap-2">
+        
+        무료 체험 신청하기
+      </button>
+      
+    </form>
+      </div><!-- /좌측 폼 -->
+
+      <!-- 우측: 소개자료 다운로드 -->
+      <div class="sticky top-24 space-y-4">
+        <div class="bg-white rounded-2xl shadow-card border border-ink-100 overflow-hidden">
+          <div class="bg-brand-700 px-6 py-5">
+            <p class="text-brand-200 text-xs font-semibold uppercase tracking-wider mb-1">소개 자료</p>
+            <h3 class="text-white font-bold text-base leading-snug">안전NOW 서비스 소개서</h3>
+            
+          </div>
+          <!-- 미리보기 목업 -->
+          <div class="bg-ink-50 px-6 py-5">
+            <div class="bg-white rounded-xl border border-ink-100 p-4 shadow-sm space-y-3">
+              <div class="flex items-center gap-2">
+                <div class="w-6 h-6 rounded-md bg-brand-600 flex items-center justify-center flex-shrink-0">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.955 11.955 0 003 12c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.57-.598-3.75h-.152c-3.196 0-6.1-1.248-8.25-3.286z"></path></svg>
+                </div>
+                <span class="text-sm font-bold text-ink-900">안전NOW</span>
+              </div>
+              <div class="h-1.5 bg-ink-100 rounded-full w-full"></div>
+              <div class="h-1.5 bg-ink-100 rounded-full w-4/5"></div>
+              <div class="grid grid-cols-3 gap-1.5 mt-1">
+                <div class="bg-brand-50 rounded-lg p-1.5 text-center"><div class="text-[10px] font-bold text-brand-700">위험성평가</div></div>
+                <div class="bg-brand-50 rounded-lg p-1.5 text-center"><div class="text-[10px] font-bold text-brand-700">TBM</div></div>
+                <div class="bg-brand-50 rounded-lg p-1.5 text-center"><div class="text-[10px] font-bold text-brand-700">도급관리</div></div>
+              </div>
+              <div class="h-1.5 bg-ink-100 rounded-full w-3/5"></div>
+            </div>
+          </div>
+          <div class="px-6 pb-5 space-y-2">
+            <a href="./IRD_intro_shared_planner.html" class="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl border-2 border-brand-600 text-brand-700 font-semibold text-sm hover:bg-brand-50 transition">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+              소개자료 바로보기
+            </a>
+            <a href="#" onclick="alert('소개자료 PDF 다운로드가 시작됩니다.'); return false;" class="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl bg-ink-50 text-ink-600 font-semibold text-sm hover:bg-ink-100 transition">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+              PDF 다운로드
+            </a>
+          </div>
+        </div>
+
+        <div class="text-center">
+          <p class="text-xs text-ink-400 mb-2">도입 규모가 크신가요?</p>
+          <a href="./ASK_shared_planner.html" class="text-sm font-semibold text-brand-600 hover:text-brand-800 underline">엔터프라이즈 문의하기 →</a>
+        </div>
+      </div><!-- /우측 소개자료 -->
+
+    </div><!-- /grid -->
+  </div>
+</section>
+
+</main>
+
+<!-- ===== Footer ===== -->
+<footer data-section-id="F00" data-section-name="Footer" class="bg-ink-900 text-ink-300 py-16" style="position:relative">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="grid lg:grid-cols-3 gap-10 pb-10 border-b border-white/10">
+      <div class="lg:col-span-2">
+        <div class="flex items-center gap-2 mb-4">
+          <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+            <path d="M16 2L4 7v9c0 7.5 5.1 13.5 12 14 6.9-.5 12-6.5 12-14V7l-12-5z" fill="url(#ftr-g)"></path>
+            <path d="M11 16l3.5 3.5L21 12" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path>
+            <defs><linearGradient id="ftr-g" x1="0" y1="0" x2="32" y2="32"><stop offset="0%" stop-color="#60A5FA"></stop><stop offset="100%" stop-color="#3B82F6"></stop></linearGradient></defs>
+          </svg>
+          <span class="text-xl font-bold text-white">안전<span class="text-brand-400">NOW</span></span>
+        </div>
+        <p class="text-2xl lg:text-3xl font-extrabold text-white leading-snug max-w-lg">수백 개의 서류를 <span class="text-accent-500">단 하나</span>의 시스템으로</p>
+        <p class="text-2xl lg:text-3xl font-extrabold text-white leading-snug max-w-lg">당신의 책임을 <span class="text-accent-500">확실한 증거</span>로 바꿉니다.</p>
+      </div>
+      <div class="flex flex-col gap-3 justify-end">
+        <a href="./FRE_shared_planner.html" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-accent-500 text-white font-semibold hover:bg-accent-600 transition">
+          무료 체험 신청 하기
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5 3l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg>
+        </a>
+        <a href="./ASK_shared_planner.html" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-white/10 border border-white/20 text-white font-semibold hover:bg-white/20 transition">도입 문의하기</a>
+      </div>
+    </div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 py-10 text-sm">
+      <div><div class="text-xs text-ink-500 mb-2">회사</div><div class="text-white font-bold">(주)다온플레이스</div></div>
+      <div><div class="text-xs text-ink-500 mb-2">대표</div><div class="text-white font-bold">박주현</div></div>
+      <div><div class="text-xs text-ink-500 mb-2">주소</div><div>전남 나주시 우정로 56, B 204호</div></div>
+      <div><div class="text-xs text-ink-500 mb-2">연락처</div><div class="">061-820-8070</div><div class="">info@daonplace.com</div></div>
+    </div>
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 pt-6 border-t border-white/10 text-sm">
+      <div class="text-ink-500">© 2026 (주)다온플레이스. All rights reserved.</div>
+      <div class="flex items-center gap-6">
+        <a href="https://safenow.co.kr/mber/support/prvplc/cntnts/2/view" class="hover:text-white transition" target="_blank" rel="noopener noreferrer">개인정보 처리방침</a>
+        <a href="https://safenow.co.kr/mber/support/trmuse/cntnts/1/view" class="hover:text-white transition" target="_blank" rel="noopener noreferrer">이용약관</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Success Modal -->
+<div id="successModal" class="overlay">
+  <div class="bg-white rounded-2xl shadow-2xl p-10 max-w-sm mx-4 text-center">
+    <div class="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-4">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"></path></svg>
+    </div>
+    <h3 class="text-xl font-bold text-ink-900 mb-2">신청 완료!</h3>
+    <p class="text-ink-500 text-sm mb-6">입력하신 연락처로 <strong class="text-ink-800">1영업일 이내</strong> 담당자가 연락드립니다.</p>
+    <button onclick="document.getElementById('successModal').classList.remove('show')" class="w-full py-3 rounded-xl bg-brand-600 text-white font-bold text-sm hover:bg-brand-700 transition">확인</button>
+  </div>
+</div>
+
+<script>
+// ── Feature toggle ──
+function toggleFeat(label) {
+  const cb = label.querySelector('input[type=checkbox]');
+  cb.checked = !cb.checked;
+  label.classList.toggle('checked', cb.checked);
+}
+
+// ── Form submit ──
+function handleSubmit(e) {
+  e.preventDefault();
+  const required = ['company','workers','name','phone','email'];
+  for (const id of required) {
+    const el = document.getElementById(id);
+    if (!el.value.trim()) { el.focus(); el.style.borderColor='#EF4444'; return; }
+    el.style.borderColor='';
+  }
+  if (!document.getElementById('privacy').checked) {
+    alert('개인정보 수집 및 이용에 동의해주세요.'); return;
+  }
+  document.getElementById('successModal').classList.add('show');
+  e.target.reset();
+  document.querySelectorAll('.feat-label').forEach(l => l.classList.remove('checked'));
+}
+
+// ── Mobile menu ──
+(function(){
+  const toggleBtn = document.getElementById('mobile-menu-toggle');
+  const closeBtn  = document.getElementById('mobile-menu-close');
+  const sideMenu  = document.getElementById('mobile-side-menu');
+  const backdrop  = document.getElementById('mobile-menu-backdrop');
+  const navLinks  = document.querySelectorAll('.mobile-nav-link');
+  if (!toggleBtn || !sideMenu || !backdrop) return;
+  const open  = () => { sideMenu.classList.add('is-open'); backdrop.classList.add('is-open'); document.body.classList.add('menu-open'); toggleBtn.setAttribute('aria-expanded','true'); };
+  const close = () => { sideMenu.classList.remove('is-open'); backdrop.classList.remove('is-open'); document.body.classList.remove('menu-open'); toggleBtn.setAttribute('aria-expanded','false'); };
+  toggleBtn.addEventListener('click', open);
+  if (closeBtn) closeBtn.addEventListener('click', close);
+  backdrop.addEventListener('click', close);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+  navLinks.forEach(l => l.addEventListener('click', close));
+  window.matchMedia('(min-width: 1024px)').addEventListener('change', e => { if (e.matches) close(); });
+})();
+</script>
+
+<!-- ========================================================= -->
+<!-- 📋 TWEAKS MARKUP                                           -->
+<!-- ========================================================= -->
+<!-- 하단 Tweaks 바 -->
+
+
+<!-- Description 모달 -->
+
+
+<!-- Guide 모달 -->
+
+
+<!-- Edit 드로어 -->
+
+
+
+<!-- Export 모달 -->
+
+
+<!-- 인라인 팝오버 -->
+
+
+<!-- 컬러 팔레트 -->
+
+
+<!-- 링크 편집기 -->
+
+
+<!-- 섹션 추가 팝업 (Edit 모드 전용) -->
+
+
+<div class="tw-toast" id="tw-toast">✅ Guide 저장 완료</div>
+
+
+
+
+
+
+<style>
+:root {
+  --tws-primary: #2563EB; --tws-accent: #F97316;
+  --tws-ink-900: #0F172A; --tws-ink-700: #334155; --tws-ink-500: #64748B; --tws-ink-100: #F1F5F9; --tws-ink-50: #F8FAFC;
+  --tws-border: #E2E8F0;
+  --tws-font: 'Pretendard Variable', Pretendard, -apple-system, sans-serif;
+}
+.tws-bar {
+  position: fixed; bottom: 20px; right: 20px; z-index: 9999;
+  background: var(--tws-ink-900); border-radius: 14px; padding: 6px;
+  display: flex; gap: 4px; box-shadow: 0 12px 32px rgba(15,23,42,.25); font-family: var(--tws-font);
+}
+.tws-bar-btn { border: 0; background: transparent; color: #CBD5E1; font-family: inherit; font-size: 12px; font-weight: 700;
+  padding: 9px 14px; border-radius: 9px; cursor: pointer; display: flex; align-items: center; gap: 6px; transition: all .15s; }
+.tws-bar-btn:hover { color: #fff; background: rgba(255,255,255,.06); }
+.tws-bar-btn.active { background: #fff; color: var(--tws-ink-900); }
+.tws-bar-btn.tws-bar-guide { color: #93C5FD; }
+.tws-bar-sep { width: 1px; background: rgba(255,255,255,.1); margin: 4px 2px; }
+body.tws-mode-desc [data-section-id] {
+  cursor: zoom-in; position: relative; outline: 2px dashed transparent; outline-offset: -6px; transition: all .15s;
+}
+body.tws-mode-desc [data-section-id]:hover { outline-color: var(--tws-primary); filter: brightness(1.02); }
+body.tws-mode-desc [data-section-id]::before {
+  content: '📄 클릭하여 기획 내용 보기'; position: absolute; top: 12px; left: 50%;
+  transform: translateX(-50%) translateY(-4px); z-index: 40;
+  background: var(--tws-primary); color: #fff; font-size: 11px; font-weight: 700; padding: 5px 10px; border-radius: 99px;
+  opacity: 0; pointer-events: none; transition: opacity .2s, transform .2s;
+  font-family: var(--tws-font); box-shadow: 0 4px 12px rgba(37,99,235,.35); white-space: nowrap;
+}
+body.tws-mode-desc [data-section-id]:hover::before { opacity: 1; transform: translateX(-50%) translateY(0); }
+.tws-sid-badge {
+  display: none; position: absolute; top: 10px; left: 10px; z-index: 41;
+  background: var(--tws-ink-900); color: #fff; font-size: 10px; font-weight: 800; padding: 3px 7px; border-radius: 4px;
+  font-family: ui-monospace, monospace; letter-spacing: .5px; pointer-events: none;
+}
+body.tws-mode-desc [data-section-id] > .tws-sid-badge { display: inline-block; }
+.tws-modal-backdrop {
+  position: fixed; inset: 0; background: rgba(15,23,42,.65); backdrop-filter: blur(4px);
+  z-index: 10000; opacity: 0; pointer-events: none; transition: opacity .25s;
+  display: flex; align-items: center; justify-content: center; padding: 20px; font-family: var(--tws-font);
+}
+.tws-modal-backdrop.is-open { opacity: 1; pointer-events: auto; }
+.tws-modal {
+  background: #fff; border-radius: 18px; width: 100%; max-width: 720px; max-height: 90vh;
+  display: flex; flex-direction: column; overflow: hidden;
+  transform: translateY(20px) scale(.98); opacity: 0; transition: all .3s cubic-bezier(.4,0,.2,1);
+}
+.tws-modal-backdrop.is-open .tws-modal { transform: translateY(0) scale(1); opacity: 1; }
+.tws-modal-head { padding: 18px 24px; background: var(--tws-ink-900); color: #fff;
+  display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-shrink: 0; }
+.tws-modal-head h3 { margin: 0; font-size: 16px; font-weight: 800; display: flex; align-items: center; gap: 10px; min-width: 0; }
+.tws-modal-head .id-pill { font-size: 11px; font-weight: 800; padding: 3px 8px; background: var(--tws-accent); border-radius: 4px;
+  font-family: ui-monospace, monospace; letter-spacing: .8px; flex-shrink: 0; }
+.tws-modal-close { background: rgba(255,255,255,.1); border: 0; color: #fff; width: 32px; height: 32px; border-radius: 8px;
+  font-size: 18px; cursor: pointer; flex-shrink: 0; }
+.tws-modal-body { flex: 1; overflow-y: auto; padding: 24px 28px 28px; }
+.tws-d-hl { background: #EFF6FF; border: 1px solid #DBEAFE; border-radius: 10px; padding: 14px 16px; margin-bottom: 20px; }
+.tws-d-hl .lb { font-size: 10px; font-weight: 800; color: var(--tws-primary); letter-spacing: .8px; margin-bottom: 6px; }
+.tws-d-hl .tx { font-size: 17px; font-weight: 700; color: var(--tws-ink-900); line-height: 1.4; }
+.tws-d-hl .sb { font-size: 13px; color: var(--tws-ink-500); margin-top: 8px; white-space: pre-line; line-height: 1.55; }
+.tws-d-blk { margin-bottom: 20px; }
+.tws-d-blk h4 { font-size: 11px; font-weight: 800; color: var(--tws-primary); text-transform: uppercase; letter-spacing: .6px;
+  margin: 0 0 8px; padding-bottom: 6px; border-bottom: 2px solid #DBEAFE; }
+.tws-d-blk p { margin: 0; font-size: 13.5px; color: var(--tws-ink-700); line-height: 1.65; }
+.tws-d-blk ul { list-style: none; padding: 0; margin: 0; }
+.tws-d-blk li { position: relative; padding: 7px 0 7px 18px; font-size: 13.5px; color: var(--tws-ink-700);
+  line-height: 1.55; border-bottom: 1px dashed var(--tws-ink-100); }
+.tws-d-blk li:last-child { border-bottom: 0; }
+.tws-d-blk li::before { content: ''; position: absolute; left: 4px; top: 14px; width: 6px; height: 6px; border-radius: 50%;
+  background: var(--tws-primary); }
+.tws-d-notes { background: #FFF8F0; border-left: 3px solid var(--tws-accent); padding: 11px 14px;
+  border-radius: 0 8px 8px 0; font-size: 13px; color: var(--tws-ink-700); line-height: 1.6; }
+.tws-info-meta { background: var(--tws-ink-50); border: 1px solid var(--tws-border); border-radius: 10px; padding: 12px 14px; margin-bottom: 18px; }
+.tws-info-row { display: grid; grid-template-columns: 100px 1fr; gap: 12px; padding: 5px 0;
+  border-bottom: 1px dashed var(--tws-ink-100); font-size: 13px; }
+.tws-info-row:last-child { border-bottom: 0; }
+.tws-info-row .k { font-size: 10.5px; font-weight: 800; color: var(--tws-ink-500); text-transform: uppercase; letter-spacing: .5px; align-self: center; }
+.tws-info-row .v { font-weight: 700; color: var(--tws-ink-900); }
+.tws-info-modes { display: flex; flex-direction: column; gap: 8px; }
+.tws-info-mode { display: grid; grid-template-columns: 140px 1fr; gap: 14px; padding: 10px 12px;
+  background: var(--tws-ink-50); border-radius: 8px; border: 1px solid var(--tws-border); font-size: 12.5px; }
+.tws-info-mode .k { font-weight: 800; color: var(--tws-ink-900); }
+.tws-info-mode .v { color: var(--tws-ink-700); line-height: 1.55; }
+@media (max-width:640px) {
+  .tws-bar { bottom: 12px; right: 12px; padding: 5px; }
+  .tws-bar-btn { padding: 9px 10px !important; font-size: 11px; }
+  .tws-bar-btn .label { display: none; }
+  .tws-bar-btn .ico { font-size: 16px; }
+  body { padding-bottom: 80px; }
+  .tws-modal-backdrop { padding: 0; align-items: flex-end; }
+  .tws-modal { border-radius: 18px 18px 0 0; max-height: 92vh; }
+  .tws-info-row { grid-template-columns: 80px 1fr; }
+  .tws-info-mode { grid-template-columns: 1fr; gap: 4px; }
+}
+@media print { .tws-bar, .tws-modal-backdrop, .tws-sid-badge { display: none !important; } }
+</style>
+
+<div class="tws-bar" data-tws-ui="" role="toolbar">
+  <button class="tws-bar-btn tws-bar-guide" data-tws-action="info"><span>📢</span><span class="label">Guide</span></button>
+  <div class="tws-bar-sep"></div>
+  <button class="tws-bar-btn active" data-tws-mode="proto"><span>🖥️</span><span class="label">Prototype</span></button>
+  <button class="tws-bar-btn" data-tws-mode="desc"><span>📄</span><span class="label">Description</span></button>
+</div>
+
+<div class="tws-modal-backdrop" id="tws-desc-modal" data-tws-ui="">
+  <div class="tws-modal">
+    <div class="tws-modal-head">
+      <h3><span class="id-pill" id="tws-dm-id"></span><span id="tws-dm-title"></span></h3>
+      <button class="tws-modal-close" data-tws-close="desc">✕</button>
+    </div>
+    <div class="tws-modal-body" id="tws-dm-body"></div>
+  </div>
+</div>
+
+<div class="tws-modal-backdrop" id="tws-info-modal" data-tws-ui="">
+  <div class="tws-modal">
+    <div class="tws-modal-head">
+      <h3><span class="id-pill" style="background:#3B82F6">GUIDE</span><span>사용 가이드</span></h3>
+      <button class="tws-modal-close" data-tws-close="info">✕</button>
+    </div>
+    <div class="tws-modal-body" id="tws-info-body"></div>
+  </div>
+</div>
+
+<script>
+(() => {
+  const payload = {"project":"무료 체험 신청","version":"1.0","lastUpdated":"2026-04-24","guide":{"projectName":"","collaborationTips":["각 섹션의 기획 의도는 Description 모드에서 섹션을 클릭해 확인할 수 있습니다.","모바일 반응형은 브라우저 개발자도구의 디바이스 시뮬레이터로 점검해 주세요.","각 버튼의 액션은 Description을 확인하거나 실제로 눌러 이동 경로를 확인할 수 있습니다.","만약 액션이 원활히 작동하지 않는다면 각각의 html 코드 확인을 부탁드립니다.🙏"]},"sections":[{"id":"H00","name":"Global Nav","title":"GNB","description":{"purpose":"","headline":"","subCopy":"","components":[],"interactions":[],"acceptanceCriteria":[],"notes":"- GNB는 전 페이지 공통 컴포넌트. 하위 페이지 진입 시에도 동일 유지해야 함."}},{"id":"S01","name":"Hero","title":"무료 체험 히어로","description":{"purpose":"","headline":"안전NOW의 모든 기능을 무료로 체험해 보세요","subCopy":"","components":[],"interactions":[],"acceptanceCriteria":[],"notes":""}},{"id":"S02","name":"신청 폼","title":"무료 체험 신청서 + 소개자료 사이드바","description":{"purpose":"실제 무료 체험 신청을 받는 페이지의 핵심 섹션이며, 최소 필수 정보만 입력받아 신청 허들을 낮추고, 우측 소개자료 다운로드로 신청 전 의사결정을 보조합니다.","headline":"무료 체험 신청서","subCopy":"아래 정보를 입력하시면 데모 계정을 보내드립니다.","components":["[좌측 폼] 담당자 기본 정보 5개 필드 (필수, 회사명·근로자수·이름·연락처·이메일)","[좌측 폼] 주요 관심 기능 8개 체크박스 (선택, 안전보건경영체계/도급관리/위험성평가/TBM/안전보건교육/사업장관리/업무관리/근로자참여)","[좌측 폼] 추가 문의사항 textarea (선택)","[좌측 폼] 개인정보 수집·이용 동의 체크박스 (필수, 개인정보 처리방침 링크)","[좌측 폼] 제출 CTA","[우측 사이드바] 소개자료 카드 (타이틀 + 미리보기 목업 + 「소개자료 바로보기」·「PDF 다운로드」 2버튼)","[우측 사이드바] 엔터프라이즈 문의 유도 링크","근로자 수 (select, 1~30명 / 31~50 / 51~100 / 101~200 / 201~300 / 301~500 / 501~999 / 1,000명 이상, 필수)"],"interactions":["우측 사이드바는 스크롤 시 폼 옆에 고정","소개 자료 다운로드 버튼 클릭 시, 해당 파일 다운로드","소개 자료 바로보기  버튼 클릭 시, 문서 바로 보기","엔터프라이즈 문의 클릭 시, 도입 문의 화면으로 이동","제출 성공 피드백 UI 필요 : 무료 신청이 완료되었습니다.","제출 실패 피드백 UI 필요 : 무료 신청을 실패하였습니다. 다시 시도해 주세요."],"acceptanceCriteria":["모든 필수 필드 미입력 시 제출 차단","미입력 내용에 대한 안내 또는 에러 메시지 필요","연락처, 이메일의 경우 올바를 형식 검증 필요"],"notes":""}},{"id":"F00","name":"Footer","title":"Footer","description":{"purpose":"","headline":"","subCopy":"","components":[],"interactions":[],"acceptanceCriteria":[],"notes":"- Footer는 전 페이지 공통 컴포넌트. 하위 페이지 진입 시에도 동일 유지해야 함. (메인의 내용을 기준으로 함)"}}]};
+  const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const $ = id => document.getElementById(id);
+  const $$ = sel => document.querySelectorAll(sel);
+
+  // 섹션 뱃지 주입
+  document.querySelectorAll('[data-section-id]').forEach(sec => {
+    if (getComputedStyle(sec).position === 'static') sec.style.position = 'relative';
+    if (!sec.querySelector(':scope > .tws-sid-badge')) {
+      const b = document.createElement('span');
+      b.className = 'tws-sid-badge';
+      b.textContent = `${sec.dataset.sectionId} · ${sec.dataset.sectionName || ''}`;
+      sec.insertBefore(b, sec.firstChild);
+    }
+  });
+
+  let mode = 'proto';
+  function setMode(m) {
+    mode = m;
+    document.body.classList.remove('tws-mode-proto', 'tws-mode-desc');
+    document.body.classList.add('tws-mode-' + m);
+    $$('.tws-bar-btn[data-tws-mode]').forEach(b => b.classList.toggle('active', b.dataset.twsMode === m));
+  }
+
+  function openDesc(sid) {
+    const s = payload.sections.find(x => x.id === sid); if (!s) return;
+    const d = s.description || {};
+    $('tws-dm-id').textContent = s.id;
+    $('tws-dm-title').textContent = s.title || '';
+    const list = arr => (arr && arr.length) ? `<ul>${arr.map(i => `<li>${esc(i)}</li>`).join('')}</ul>` : '<p style="color:#94A3B8;font-size:12px">(내용 없음)</p>';
+    $('tws-dm-body').innerHTML =
+      (d.headline ? `<div class="tws-d-hl"><div class="lb">HEADLINE</div><div class="tx">${esc(d.headline)}</div>${d.subCopy ? `<div class="sb">${esc(d.subCopy)}</div>` : ''}</div>` : '') +
+      `<div class="tws-d-blk"><h4>🎯 목적</h4><p>${esc(d.purpose || '(작성 필요)')}</p></div>` +
+      `<div class="tws-d-blk"><h4>🧩 주요 컴포넌트</h4>${list(d.components)}</div>` +
+      `<div class="tws-d-blk"><h4>🖱️ 인터랙션</h4>${list(d.interactions)}</div>` +
+      `<div class="tws-d-blk"><h4>✅ 수용 기준</h4>${list(d.acceptanceCriteria)}</div>` +
+      (d.notes ? `<div class="tws-d-blk"><h4>📌 비고</h4><div class="tws-d-notes">${esc(d.notes)}</div></div>` : '');
+    $('tws-desc-modal').classList.add('is-open');
+  }
+
+  function openInfo() {
+    const tips = payload.guide?.collaborationTips || [];
+    $('tws-info-body').innerHTML = `
+      <div class="tws-info-meta">
+        <div class="tws-info-row"><div class="k">프로젝트</div><div class="v">${esc(payload.project)}</div></div>
+        <div class="tws-info-row"><div class="k">버전</div><div class="v">${esc(payload.version)}</div></div>
+        <div class="tws-info-row"><div class="k">최종 편집</div><div class="v">${esc(payload.lastUpdated)}</div></div>
+      </div>
+      <div class="tws-d-blk">
+        <h4>📖 공유용 기획서 안내</h4>
+        <p style="margin:0;font-size:13px;color:#334155;line-height:1.6">이 파일은 공유용 HTML입니다. <strong>Prototype</strong>(실제 동작) · <strong>Description</strong>(섹션 기획 내용) 2개 모드를 하단 바에서 전환할 수 있습니다. Description 모드에서 각 섹션을 클릭하면 상세 기획을 확인할 수 있습니다.</p>
+      </div>
+      <div class="tws-d-blk">
+        <h4>🎛️ 모드별 사용법</h4>
+        <div class="tws-info-modes">
+          <div class="tws-info-mode"><div class="k">🖥️ Prototype</div><div class="v">버튼·링크·폼이 실제로 작동하는 프로토타입 모드입니다.</div></div>
+          <div class="tws-info-mode"><div class="k">📄 Description</div><div class="v">섹션 위에 마우스를 올리면 파란 점선과 안내 버블이 나타나고, 클릭하면 기획 상세 모달이 열립니다.</div></div>
+        </div>
+      </div>
+      <div class="tws-d-blk">
+        <h4>💡 협업 팁</h4>
+        ${tips.length ? '<ul>' + tips.map(t => '<li>' + esc(t) + '</li>').join('') + '</ul>' : '<p style="color:#94A3B8;font-size:12px">(등록된 팁 없음)</p>'}
+      </div>
+    `;
+    $('tws-info-modal').classList.add('is-open');
+  }
+
+  document.body.addEventListener('click', e => {
+    const sec = e.target.closest('[data-section-id]');
+    if (mode === 'desc' && sec && !e.target.closest('[data-tws-ui]')) { e.preventDefault(); openDesc(sec.dataset.sectionId); }
+  }, true);
+
+  $$('.tws-bar-btn[data-tws-mode]').forEach(b => b.addEventListener('click', () => setMode(b.dataset.twsMode)));
+  document.querySelector('.tws-bar-btn[data-tws-action="info"]').addEventListener('click', openInfo);
+  document.querySelector('[data-tws-close="desc"]').addEventListener('click', () => $('tws-desc-modal').classList.remove('is-open'));
+  document.querySelector('[data-tws-close="info"]').addEventListener('click', () => $('tws-info-modal').classList.remove('is-open'));
+  $('tws-desc-modal').addEventListener('click', e => { if (e.target.id === 'tws-desc-modal') e.currentTarget.classList.remove('is-open'); });
+  $('tws-info-modal').addEventListener('click', e => { if (e.target.id === 'tws-info-modal') e.currentTarget.classList.remove('is-open'); });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.tws-modal-backdrop.is-open').forEach(m => m.classList.remove('is-open'));
+    }
+  });
+
+  setMode('proto');
+})();
+</script>
+</body></html>
